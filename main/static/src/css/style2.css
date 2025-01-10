@@ -1,0 +1,34 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura total da tela */
+    margin: 0; /* Remove a margem padrão */
+    background-image: url("/static/src/images/hyrule.png"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.text-success{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin-right: 50px;
+    margin-bottom: 230px;
+    color: white;
+    font: message-box;
+    font-size: x-large;
+}
+.text-link{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin-right: 50px;
+    margin-bottom: 180px;
+    color: white;
+    font: message-box;
+    font-size: x-large;  
+}
+
+

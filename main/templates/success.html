@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<link href="{% static 'src/css/style2.css' %}" rel="stylesheet">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'src/images/kokiri.png' %}">
+    <title>Seu link encurtado</title>
+</head>  
+<body>
+    <audio id="som-sucesso" src="{% static 'src/audios/success.mp3' %}"></audio>
+    <b class="text-success"> Parabéns, você encurtou seu link, aqui está </b>
+    <p style="display: flex;
+    position: absolute;
+    bottom: 0;
+    margin-right: 235px;
+    margin-bottom: 180px;
+    color: lightblue;
+    font: message-box;
+    font-size: x-large;" href="http://127.0.0.1:8000/{{ linkKey }}">http://127.0.0.1:8000/{{ linkKey }}</p>
+</body>
+<script>
+    window.onload = function() {
+    const audio = document.getElementById('som-sucesso');  
+    audio.play().catch(error => {
+            console.error('Erro ao reproduzir o som:', error);
+        });
+    }
+</script>
+</html>

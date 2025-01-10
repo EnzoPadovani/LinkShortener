@@ -1,0 +1,113 @@
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altura total da tela */
+            margin: 0; /* Remove a margem padrão */
+            background-image: url("/static/src/images/masterSword.png"); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            height: 50px;
+            width: 400px;
+            margin-top: 450px;
+            margin-right: 460px;
+            margin-left: 200px;
+            opacity: 50%;
+            border-radius: 15px;
+            border-color: black;
+            background-color: gray;
+        }
+
+        input[type="image"]{
+
+            height: 120px;
+            width: 120px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 200px;
+            margin-right: 450px;
+        
+
+        }
+
+        .navi-gif{
+            width: 200px;
+            height: 200px;
+            margin-top: 450px;
+            margin-right: -150px;
+        }
+        input[type="url"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 400px;
+            opacity: 90%;
+            background: transparent;
+            border-color: transparent;
+            margin: 0 auto;
+            position: fixed;
+            top: 48%;
+            left: 43.2%;
+            display: flex;
+        }
+        input:focus{
+            outline: none;
+        }
+        .erro-1{
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 1200px;
+            text-align: center;
+            font-size: 50px;
+            background-color: black;
+            color: #bb9d67;
+            z-index: 1000;
+            
+        }
+
+        #overlay {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Cor preta semitransparente */
+            z-index: 999; /* Fica sobre todo o conteúdo */
+        }
+
+            /* Botão de fechar - estilo padrão */
+        #modal-erro button {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: white; /* Texto branco */
+            background-color: black; /* Fundo preto */
+            border: 2px solid #fbfce7; /* Borda branca */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease; /* Transição suave */
+        }
+
+        /* Efeito ao passar o mouse */
+        #modal-erro button:hover {
+            text-shadow: 0 0 5px #fbfce7; /* Brilho no texto */
+            box-shadow: 0 0 10px #ccc, 0 0 20px white inset; /* Sombra e brilho */
+            border-color: #ccc; /* Realce da borda */
+        }
+
+

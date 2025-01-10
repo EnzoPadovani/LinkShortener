@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<link href="{% static 'src/css/style.css' %}" rel="stylesheet">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'src/images/shield.png' %}">
+    <title>Encurtador de Links</title>
+</head>  
+<body>
+    <audio id="som-erro" src="{% static 'src/audios/death.mp3' %}"></audio>
+    <img src= "{% static 'src/images/navi.gif' %}" class="navi-gif">
+
+    <form action="{% url 'valida_link' %}" method="POST"> {% csrf_token %}
+        <table>
+
+        <input type="url" name="linkOriginal" maxlength="200" placeholder="Digite aqui o link que sera encurtado" required="" id="id_linkOriginal">
+        <br>
+        {{ form.linkKey }}
+        <br>
+            <div id="overlay"></div>
+            <div id="modal-erro" class="erro-1">
+                <h2 style="font-family: The Wild Breath of Zelda; color: #fd2801;">Erro</h2>
+                <p style="font-family: The Wild Breath of Zelda;">A chave de link digitada ja existe. Por favor, escolha outra.</p>
+                <button onclick="fecharModal()" class="modal-erro">Fechar</button>
+            </div>
+
+
+            {% if status == "2" %}
+             <p style ="color: brown;">erro interno no ato de salvar, tente novamente</p>
+            {% endif %}
+            {% if status == "0" %}
+            <p style ="color: blue;">salvo com sucesso, seu link e: </p>
+            {% endif %}
+        </table>
+
+            <input type="image" src= "{% static 'src/images/adultLink.png' %}">
+
+    </form>
+</body>
+
+<script>
+    // Função para obter o valor de um parâmetro da URL
+    function getParameterByName(name) {
+        const url = window.location.href;
+        const regex = new RegExp(`[?&]${name}=([^&#]*)`, 'i');
+        const results = regex.exec(url);
+        return results ? decodeURIComponent(results[1]) : null;
+    }
+
+    // Verifica se o status é 1
+    const status = getParameterByName('status');
+    if (status === '1') {
+        const audio = document.getElementById('som-erro');
+        const overlay = document.getElementById('overlay');
+        const modal = document.getElementById('modal-erro');
+        modal.style.display = 'block';
+        overlay.style.display = 'block';
+        audio.play().catch(error => {
+            console.error('Erro ao reproduzir o som:', error);
+        });
+    }
+
+    function fecharModal() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('modal-erro').style.display = 'none';
+        }
+
+   
+</script>
+</html>
